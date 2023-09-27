@@ -46,7 +46,7 @@ function tallyScore(winner){
             console.log("Game " + gameNumber);
             console.log("Player: " + playerScore);
             console.log("Computer: " + computerScore);
-            roundDiv.textContent = `Game ${gameNumber}: ${result}`;
+            roundDiv.textContent = `Round ${gameNumber}: ${result}`;
             playerDiv.textContent = `Player:  ${playerScore}`;
             computerDiv.textContent = `Computer:  ${computerScore}`;
             checkWinner();
@@ -57,7 +57,7 @@ function tallyScore(winner){
             console.log("Game " + gameNumber);
             console.log("Player: " + playerScore);
             console.log("Computer: " + computerScore);
-            roundDiv.textContent = `Game ${gameNumber}: ${result}`;
+            roundDiv.textContent = `Round ${gameNumber}: ${result}`;
             playerDiv.textContent = `Player:  ${playerScore}`;
             computerDiv.textContent = `Computer:  ${computerScore}`;
             checkWinner();
@@ -68,7 +68,7 @@ function tallyScore(winner){
 
 function checkWinner() {
     if (playerScore == 5) {
-        let winnerText = `Player wins! Congratulations!\nFinal Score:\nPlayer: ${playerScore}\nComputer: ${computerScore}`;
+        let winnerText = `Player wins! Congratulations!\nFinal Score:\nPlayer: ${playerScore}\nComputer: ${computerScore}\nTotal of ${gameNumber} rounds`;
         alert(winnerText);
         location.reload();
     } else if (computerScore == 5) {
@@ -98,13 +98,13 @@ function playRound(playerSelection, computerSelection){
     console.log("Computer is " + computerSelection);
     
     if(playerSelection == computerSelection){
-        result = "It's a draw!";
+        result = `Player is ${playerSelection} | Computer is ${computerSelection} - It's a draw!`;
         gameNumber++;
         console.log("It's a draw!");
         console.log("Game " + gameNumber);
         console.log("Player: " + playerScore);
         console.log("Computer: " + computerScore);
-        roundDiv.textContent = `Game ${gameNumber}: ${result}`;
+        roundDiv.textContent = `Round ${gameNumber}: ${result}`;
         playerDiv.textContent = `Player:  ${playerScore}`;
         computerDiv.textContent = `Computer:  ${computerScore}`;
         return result;
@@ -113,42 +113,42 @@ function playRound(playerSelection, computerSelection){
     }
     else {
         if(playerSelection == "Rock" && computerSelection == "Scissors"){
-            result = "You win! " + playerSelection + " beats " + computerSelection;
+            result = `Player is ${playerSelection} | Computer is ${computerSelection} - You win!`;
             console.log(result);
             tallyScore(1);
             return result;
             
         }
         else if(playerSelection == "Paper" && computerSelection == "Rock"){
-            result = "You win! " + playerSelection + " beats " + computerSelection;
+            result = `Player is ${playerSelection} | Computer is ${computerSelection} - You win!`;
             console.log(result);
             tallyScore(1);
             return result;
             
         }
         else if(playerSelection == "Scissors" && computerSelection == "Paper"){
-            result = "You win! " + playerSelection + " beats " + computerSelection;
+            result = `Player is ${playerSelection} | Computer is ${computerSelection} - You win!`;
             console.log(result);
             tallyScore(1);
             return result;
             
         }
         else if(playerSelection == "Scissors" && computerSelection == "Rock"){
-            result = "You lose! " + computerSelection + " beats " + playerSelection;
+            result = `Player is ${playerSelection} | Computer is ${computerSelection} - Computer wins!`;
             console.log(result);
             tallyScore(0);
             return result;
             
         }
         else if(playerSelection == "Rock" && computerSelection == "Paper"){
-            result = "You lose! " + computerSelection + " beats " + playerSelection;
+            result = `Player is ${playerSelection} | Computer is ${computerSelection} - Computer wins!`;
             console.log(result);
             tallyScore(0);
             return result;
             
         }
         else if(playerSelection == "Paper" && computerSelection == "Scissors"){
-            result = "You lose! " + computerSelection + " beats " + playerSelection;
+            result = `Player is ${playerSelection} | Computer is ${computerSelection} - Computer wins!`;
             console.log(result);
             tallyScore(0);
             return result;
